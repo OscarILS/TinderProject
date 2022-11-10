@@ -15,10 +15,12 @@ class MainActivity : AppCompatActivity() {
         botonIngresar.setOnClickListener{
             var correo = textoCorreo.text.toString();
             var contra = textoContra.text.toString();
-
-        }
+            if (correo)
+            }
         */
+
         //accion cuando se presiona el boton registrar
+
         //se debe abrir otra activity
         botonRegistro.setOnClickListener{
             val intent = Intent(this, Registro::class.java)

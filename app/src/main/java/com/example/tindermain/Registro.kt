@@ -1,10 +1,12 @@
 package com.example.tindermain
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.tindermain.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_registro.*
+import kotlinx.android.synthetic.main.activity_registro.view.*
 
 class Registro : AppCompatActivity() {
 
@@ -16,11 +18,11 @@ class Registro : AppCompatActivity() {
         setContentView(R.layout.activity_registro)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_registro)
 
         datosDBHelper = SQLHelper(this)
 
-        botonRegistrarse.setOnClickListener {
+            botonRegister.setOnClickListener{
             if (registroNombre.text.isNotBlank() && registroGenero.text.isNotBlank() && registroEdad.text.isNotBlank() && registroFacultad.text.isNotBlank() && registroBase.text.isNotBlank() && registroCelular.text.isNotBlank()) {
                 datosDBHelper.aniadirDatos(
                     registroNombre.text.toString(),
@@ -34,6 +36,10 @@ class Registro : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "No se ha podido guardar", Toast.LENGTH_SHORT).show()
             }
+        }
+        botonVolver.setOnClickListener{
+            val intent= Intent(this,MainActivity::class.java)
+            startActivity(intent)
         }
     }
 }

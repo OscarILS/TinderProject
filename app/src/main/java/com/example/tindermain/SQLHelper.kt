@@ -13,7 +13,7 @@ class SQLHelper(context: Context) : SQLiteOpenHelper(
 
     override fun onCreate(db: SQLiteDatabase?) {
         val ordenCreacion = "CREATE TABLE datos"+"(_id INTEGER PRIMARY KEY AUTOINCREMENT,"+
-                "nombre_completo TEXT, genero TEXT, edad INT, facultad TEXT, numero_base INT, numero_telefono INT)"
+                "nombre_completo TEXT, genero TEXT, edad INT, facultad TEXT, correo_electronico TEXT, contrasenia TEXT)"
         db!!.execSQL(ordenCreacion)
     }
 
@@ -24,14 +24,14 @@ class SQLHelper(context: Context) : SQLiteOpenHelper(
         onCreate(db)
     }
 
-    fun aniadirDatos(nombre: String, genero: String, edad: String, facultad:String, numero_base: String, numero_telefono: String){
+    fun aniadirDatos(nombre: String, genero: String, edad: String, facultad:String, correo_electronico: String, contrasenia: String){
         val datosvarios = ContentValues()
         datosvarios.put("nombre_completo",nombre)
         datosvarios.put("genero",genero)
         datosvarios.put("edad",edad)
         datosvarios.put("facultad",facultad)
-        datosvarios.put("numero_base",numero_base)
-        datosvarios.put("numero_telefono",numero_telefono)
+        datosvarios.put("correo_electronico",correo_electronico)
+        datosvarios.put("contrasenia",contrasenia)
 
         val db = this.writableDatabase
 
