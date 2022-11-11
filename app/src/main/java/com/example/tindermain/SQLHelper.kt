@@ -32,9 +32,7 @@ class SQLHelper(context: Context) : SQLiteOpenHelper(
         datosvarios.put("facultad",facultad)
         datosvarios.put("correo_electronico",correo_electronico)
         datosvarios.put("contrasenia",contrasenia)
-
         val db = this.writableDatabase
-
         db.insert("datos",null,datosvarios)
         db.close()
     }
